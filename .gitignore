@@ -21,3 +21,6 @@ hs_err_pid*
 
 # config
 /settings.xml
+
+#test files
+test.db
