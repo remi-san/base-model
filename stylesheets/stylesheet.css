@@ -245,3 +245,42 @@ a {
 .cf {
   zoom:1;
 }
+
+
+/* Explorer */
+.directory:before {
+  content: "~";
+}
+
+.package:before {
+  content: "#";
+}
+
+.package-name, .directory-name {
+  font-weight: bold;
+  color: #b5e853;
+}
+
+.package-name {
+  font-style: italic;
+  cursor: pointer;
+}
+
+.package ul {
+	display: none;
+}
+
+.file {
+	/* cursor: pointer; */
+}
+
+.file-description {
+	display: none;
+	background-color: #ffffff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 12px;
+	padding: 5px;
+	color: #000000;
+}

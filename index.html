@@ -8,14 +8,20 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <title>Base-model by remi-san</title>
+    <title>Base-Model by Remi San</title>
+	
+	<meta name="description" content="Java EE - Spring Model Utilitaries">
+	<meta name="keywords" content="Java,Java EE,J2E,J2EE,Spring,Utilitaries" >
+	<meta name="author" content="Remi San<remi.san@gmail.com>">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 
   <body>
 
     <header>
       <div class="container">
-        <h1>Base-model</h1>
+        <h1>Base-Model</h1>
         <h2>Spring model utilitaries</h2>
 
         <section id="downloads">
@@ -27,14 +33,97 @@
     </header>
 
     <div class="container">
-      <section id="main_content">
-        <h1>
-<a name="base-model" class="anchor" href="#base-model"><span class="octicon octicon-link"></span></a>base-model</h1>
-
-<p>Spring model utilitaries</p>
-      </section>
+        <section id="main_content">
+			<h3>Package content /</h3>
+			<ul>
+				<li class="directory">
+					<span class="directory-name" id="src/main/java">src/main/java</span>
+					<ul>
+						<li class="package">
+							<span class="package-name" id="net.remisan.base.manager">net.remisan.base.manager</span>
+							<ul>
+							<li class="strong" id="AbstractManager.java">
+								<span class="file">AbstractManager.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="Manager.java">
+								<span class="file">Manager.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.base.model">net.remisan.base.model</span>
+							<ul>
+							<li class="strong" id="PersistableEntity.java">
+								<span class="file">PersistableEntity.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="User.java">
+								<span class="file">User.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.base.model.validation">net.remisan.base.model.validation</span>
+							<ul>
+							<li class="strong" id="ValidationManager.java">
+								<span class="file">ValidationManager.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.base.registry">net.remisan.base.registry</span>
+							<ul>
+							<li class="strong" id="BaseRegistry.java">
+								<span class="file">BaseRegistry.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="Registry.java">
+								<span class="file">Registry.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.base.repository">net.remisan.base.repository</span>
+							<ul>
+							<li class="strong" id="Repository.java">
+								<span class="file">Repository.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.base.service">net.remisan.base.service</span>
+							<ul>
+							<li class="strong" id="AbstractService.java">
+								<span class="file">AbstractService.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="Service.java">
+								<span class="file">Service.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+        </section>
     </div>
-
-    
+	
+	<script type="application/javascript">
+	$(function() {
+		$('.package-name').click(function(e) {
+			$(e.target).next().toggle();
+		});
+		$('.file').click(function(e) {
+			//$(e.target).next().toggle();
+		});
+	});
+	</script>
   </body>
 </html>
