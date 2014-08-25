@@ -28,4 +28,6 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     
+    <import resource="classpath:/META-INF/spring/hibernate-context.xml" />
+    
 </beans>

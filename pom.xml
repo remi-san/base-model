@@ -213,10 +213,9 @@
 		
 		<!-- Persistence -->
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>${javax.persistence-version}</version>
-			<scope>test</scope>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${org.hibernate-version}</version>
 		</dependency>
 		
 		<!-- ORM -->
@@ -244,6 +243,30 @@
             <version>${sqlite-version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- Postgres -->
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql-version}</version>
+		</dependency>
+
+		<!-- Database pooling / caching -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${org.hibernate-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>${ehcache-version}</version>
+		</dependency>
 		
 		<!-- Logging -->
 		<dependency>
