@@ -2,21 +2,18 @@ package net.remisan.base.model.hibernate.mock;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import net.remisan.base.model.TestEntity;
 
 @Entity
-@Table(name = "test", schema = "public")
+@Table(name = "test")
 public class HibernateTest implements TestEntity {
 
     private static final long serialVersionUID = -9110828842620229686L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "test_id")
     private Long id;
     
@@ -36,8 +33,19 @@ public class HibernateTest implements TestEntity {
         super();
     }
     
+    public HibernateTest(Long id) {
+        super();
+        this.id = id;
+    }
+    
     public HibernateTest(String name) {
         super();
+        this.name = name;
+    }
+    
+    public HibernateTest(Long id, String name) {
+        super();
+        this.id = id;
         this.name = name;
     }
 
@@ -109,4 +117,21 @@ public class HibernateTest implements TestEntity {
         return this.id == null;
     }
 
+    /**
+     * @param anObject
+     * @return
+     * @see java.lang.String#equals(java.lang.Object)
+     */
+    public boolean equals(Object anObject) {
+        if (!(anObject instanceof TestEntity)) {
+            return false;
+        }
+        
+        TestEntity entity = (TestEntity) anObject;
+        return  ((this.id == null && entity.getId() == null) || this.id.equals(entity.getId()))
+                && ((this.name == null && entity.getName() == null) || this.name.equals(entity.getName()))
+                && ((this.dummy == null && entity.getDummy() == null) || this.dummy.equals(entity.getDummy()))
+                && ((this.foo == null && entity.getFoo() == null) || this.foo.equals(entity.getFoo()))
+                && ((this.bar == null && entity.getBar() == null) || this.bar.equals(entity.getBar()));
+    }
 }

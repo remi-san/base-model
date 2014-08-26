@@ -41,5 +41,4 @@ public interface TestEntity extends PersistableEntity {
      * @param bar the bar to set
      */
     void setBar(String bar);
-    
 }

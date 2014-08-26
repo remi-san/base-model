@@ -80,12 +80,14 @@ public abstract class HibernateRepository<T extends PersistableEntity> implement
 
     @Transactional
     public void delete(T entity) {
-        this.entityManager.remove(entity);
+        this.delete(entity.getId());
     }
     
     @Transactional
     public void delete(Long id) {
-        this.delete(this.findOne(id));
+        Query query = this.entityManager.createQuery("DELETE " + this.className + " where id = :id");
+        query.setParameter("id", id);
+        query.executeUpdate();
     }
 
     @Transactional
@@ -195,7 +197,8 @@ public abstract class HibernateRepository<T extends PersistableEntity> implement
     
     @Transactional
     public boolean exists(Long id) {
-        return this.findOne(id) != null;
+        T e = this.findOne(id);
+        return e != null;
     }
     
     @Transactional
