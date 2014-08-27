@@ -19,15 +19,6 @@
         </constructor-arg>
     </bean>
     
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.sqlite.JDBC" />
-        <property name="url" value="jdbc:sqlite:test.db"/>
-    </bean>
-    
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-    
     <import resource="classpath:/META-INF/spring/hibernate-context.xml" />
     
 </beans>
