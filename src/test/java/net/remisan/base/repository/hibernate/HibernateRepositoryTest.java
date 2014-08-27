@@ -2,7 +2,9 @@ package net.remisan.base.repository.hibernate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -16,10 +18,10 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -39,17 +41,22 @@ public class HibernateRepositoryTest {
     @Autowired
     private TestRepository repository;
     
-    @BeforeClass
-    public static void init() {
+    @Autowired
+    @Qualifier("databaseParams")
+    private Properties properties;
+    
+    @PostConstruct
+    public void staticSet() {
+        
         Configuration configuration = new Configuration();
         
         configuration.addAnnotatedClass(HibernateTest.class);
         
-        configuration.setProperty(Environment.USER, "postgres");
-        configuration.setProperty(Environment.PASS, "Chanec12");
-        configuration.setProperty(Environment.URL, "jdbc:sqlite:test.db");
-        configuration.setProperty(Environment.DIALECT, "org.hibernate.dialect.SQLiteDialect");
-        configuration.setProperty(Environment.DRIVER, "org.sqlite.JDBC");
+        configuration.setProperty(Environment.USER, this.properties.getProperty("username"));
+        configuration.setProperty(Environment.PASS, this.properties.getProperty("password"));
+        configuration.setProperty(Environment.URL, this.properties.getProperty("url"));
+        configuration.setProperty(Environment.DIALECT, this.properties.getProperty("dialect"));
+        configuration.setProperty(Environment.DRIVER, this.properties.getProperty("driverClassName"));
         
         SchemaExport se = new SchemaExport(configuration);
         se.create(true, true);
@@ -152,7 +159,7 @@ public class HibernateRepositoryTest {
         
         TestEntity toDelete = new HibernateTest(6L, "5");
         this.repository.save(toDelete);
-        //Long toDeleteId = toDelete.getId();
+        Long toDeleteId = toDelete.getId();
         
         TestEntity toDelete2 = new HibernateTest(7L, "6");
         this.repository.save(toDelete2);
@@ -162,10 +169,10 @@ public class HibernateRepositoryTest {
         Assert.assertEquals(7, entities.size());
         
         this.repository.delete(toDelete);
-        //Assert.assertFalse(this.repository.exists(toDeleteId));
+        Assert.assertFalse(this.repository.exists(toDeleteId));
         
         this.repository.delete(toDeleteId2);
-        //Assert.assertFalse(this.repository.exists(toDeleteId2));
+        Assert.assertFalse(this.repository.exists(toDeleteId2));
         
         entities = this.repository.findAll();
         Assert.assertEquals(5, entities.size());
