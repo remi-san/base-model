@@ -25,7 +25,7 @@ Usage
 Can be used in any Spring4 project using JPA2.
 
 **Example:**
-Here's the minimal example. Interfaces won't be written here but must expose every public method and must be used no matter what, that's the all point of this lib.
+Here's the minimal example. Interfaces won't be written here but must expose every public method and must be used no matter what, that's the whole point of this lib.
 
 ----------
 
