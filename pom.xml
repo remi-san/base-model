@@ -265,6 +265,13 @@
 			<version>${ehcache-version}</version>
 		</dependency>
 		
+		<!-- Mail -->
+        <dependency>
+            <groupId>org.eclipse.jetty.orbit</groupId>
+            <artifactId>javax.mail.glassfish</artifactId>
+            <version>${javax.mail-version}</version>
+        </dependency>
+		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

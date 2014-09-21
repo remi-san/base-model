@@ -15,6 +15,7 @@
         <constructor-arg>
             <list>
                 <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+                <bean class="net.remisan.base.model.validation.UserValidator" />
             </list>
         </constructor-arg>
     </bean>

@@ -1,7 +1,7 @@
 package net.remisan.base.model;
 
 
-public interface User {
+public interface User extends PersistableEntity {
 
     Long getId();
     
